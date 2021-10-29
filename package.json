@@ -1,0 +1,19 @@
+{
+  "name": "tenreck",
+  "version": "1.0.0",
+  "description": "This Tenreck repository will work on the e commerce project.\r ### Do not directly push codes to main\r ### must create a pull request",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tenreck-org/Tenreck.ecommerce.git"
+  },
+  "author": "tenreck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tenreck-org/Tenreck.ecommerce/issues"
+  },
+  "homepage": "https://github.com/Tenreck-org/Tenreck.ecommerce#readme"
+}
