@@ -4,9 +4,9 @@ dotenv.config();
 
 export default {
   PORT: process.env.PORT || 5000,
-  MONGODB_URL: process.env.MONGODB_URL || 'mongodb+srv://jaiveer:jaiveer@store.fgth8.mongodb.net/jaiveer_store?retryWrites=true&w=majority',
-  JWT_SECRET: process.env.JWT_SECRET || 'somethingsecret',
+  MONGODB_URL:'mongodb+srv://tenreck:tenreck@123@tenreck.ysmix.mongodb.net/Tenreck?retryWrites=true&w=majority',
+  JWT_SECRET: process.env.JWT_SECRET || 'ILoveEverythingTheWorldIsCurrepted0034',
   PAYPAL_CLIENT_ID: process.env.PAYPAL_CLIENT_ID || 'sb',
-  accessKeyId: process.env.accessKeyId || 'accessKeyId',
-  secretAccessKey: process.env.secretAccessKey || 'secretAccessKey',
+  accessKeyId: process.env.accessKeyId || 'IHaveNoIdea',
+  secretAccessKey: process.env.secretAccessKey || 'KeyIsNotJustToOpenLocks',
 };
