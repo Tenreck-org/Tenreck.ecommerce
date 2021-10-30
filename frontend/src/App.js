@@ -65,7 +65,7 @@ function App() {
               <i className="fa fa-bars"></i>
             </button>
             <Link className="brand" to="/">
-              Jaiveer store
+              Tenreck
             </Link>
           </div>
           <div>
@@ -256,7 +256,7 @@ function App() {
         </main>
         <footer className="row center">
           {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-          <div>All right reserved by Jaiveer 2021</div>{' '}
+          <div>All right reserved by Tenreck 2021</div>{' '}
         </footer>
       </div>
     </BrowserRouter>

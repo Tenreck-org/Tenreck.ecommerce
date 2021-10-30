@@ -33,9 +33,7 @@ export default function ShippingAddressScreen(props) {
     }
     let moveOn = true;
     if (!newLat || !newLng) {
-      moveOn = window.confirm(
-        'You did not set your location on map. Continue?'
-      );
+     
     }
     if (moveOn) {
       dispatch(
@@ -71,7 +69,7 @@ export default function ShippingAddressScreen(props) {
       <CheckoutSteps step1 step2></CheckoutSteps>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Shipping Address</h1>
+          <h1>Website info</h1>
         </div>
         <div>
           <label htmlFor="fullName">Full Name</label>
@@ -85,7 +83,7 @@ export default function ShippingAddressScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="address">Address</label>
+          <label htmlFor="address">Explain How your website should look</label>
           <input
             type="text"
             id="address"
@@ -96,22 +94,22 @@ export default function ShippingAddressScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="city">City</label>
+          <label htmlFor="Title">Title</label>
           <input
             type="text"
             id="city"
-            placeholder="Enter city"
+            placeholder="Website Title"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             required
           ></input>
         </div>
         <div>
-          <label htmlFor="postalCode">Postal Code</label>
+          <label htmlFor="postalCode">Link where you have stored resources</label>
           <input
             type="text"
             id="postalCode"
-            placeholder="Enter postal code"
+            placeholder="https://drive.google.com/?"
             value={postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
             required
@@ -127,12 +125,6 @@ export default function ShippingAddressScreen(props) {
             onChange={(e) => setCountry(e.target.value)}
             required
           ></input>
-        </div>
-        <div>
-          <label htmlFor="chooseOnMap">Location</label>
-          <button type="button" onClick={chooseOnMap}>
-            Choose On Map
-          </button>
         </div>
         <div>
           <label />
