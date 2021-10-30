@@ -9,12 +9,24 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #360033;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #0b8793, #360033);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0b8793, #360033); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 }
 #root {
   height: 100%;
 }
 
 /* Layout */
+body, h2 , h1, h3, p, a , i{
+  color: #dadada;
+}
+
+span {
+  color: #ffffff;
+}
+
 .grid-container {
   display: grid;
   grid-template-areas:
@@ -27,7 +39,12 @@ body {
 }
 header {
   grid-area: header;
-  background-color: #203040;
+  background: rgba( 255, 0, 0, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 10px );
+  -webkit-backdrop-filter: blur( 10px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 main {
   grid-area: main;
@@ -35,7 +52,12 @@ main {
 }
 footer {
   grid-area: footer;
-  background-color: #203040;
+  background: rgba( 255, 0, 0, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 10px );
+  -webkit-backdrop-filter: blur( 10px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   color: #ffffff;
 }
 /* Common */
@@ -52,7 +74,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #ff8000;
+  color: #050A30;
 }
 ul {
   padding: 0;
@@ -68,14 +90,24 @@ textarea,
 button {
   padding: 1rem;
   border-radius: 0.5rem;
-  border: 0.1rem #a4a4a4 solid;
+  background: rgba( 255, 0, 0, 0.15 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 10px );
+-webkit-backdrop-filter: blur( 10px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
   font-size: 1.6rem;
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 button {
-  background-color: #f8f8f8;
+  background: rgba( 255, 0, 0, 0.15 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 10px );
+-webkit-backdrop-filter: blur( 10px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
   cursor: pointer;
 }
 input:hover,
@@ -85,7 +117,13 @@ button:hover {
   border: 0.1rem #404040 solid;
 }
 button.primary {
-  background-color: #f0c040;
+  background: rgba( 255, 0, 0, 0.15 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 10px );
+-webkit-backdrop-filter: blur( 10px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 button.block {
   width: 100%;
@@ -146,7 +184,12 @@ aside {
   position: fixed;
   width: 30rem;
   height: 100%;
-  background-color: #efefef;
+  background: rgba( 255, 0, 0, 0.15 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 10px );
+-webkit-backdrop-filter: blur( 10px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
   z-index: 1000;
   transform: translateX(-30rem);
   transition: all 0.5s;
@@ -196,8 +239,13 @@ img.large {
 
 /* Card */
 .card {
-  border: 0.1rem #c0c0c0 solid;
-  background-color: #f8f8f8;
+  background: rgba( 255, 0, 0, 0.15 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 10px );
+-webkit-backdrop-filter: blur( 10px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
   border-radius: 0.5rem;
   margin: 1rem;
 }
@@ -270,7 +318,12 @@ img.large {
   min-width: 12rem;
   padding: 1rem;
   z-index: 1;
-  background-color: #203040;
+  background: rgba( 255, 0, 0, 0.15 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 10px );
+-webkit-backdrop-filter: blur( 10px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
   margin: 0;
   margin-top: 0.4rem;
   border-radius: 0.5rem;
@@ -296,12 +349,23 @@ img.large {
   border-collapse: collapse;
 }
 .table tbody tr:nth-of-type(odd) {
-  background-color: #f4f4f4;
+  background: rgba( 255, 0, 0, 0.15 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 10px );
+-webkit-backdrop-filter: blur( 10px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 }
 .table td,
 .table th {
   text-align: left;
-  border: 0.1rem solid #e4e4e4;
+  background: rgba( 255, 0, 0, 0.15 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 10px );
+-webkit-backdrop-filter: blur( 10px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
   padding: 0.5rem;
 }
 .table button {
@@ -386,21 +450,42 @@ img.large {
 }
 
 .summary-title.color1 {
-  background-color: #f0e0e0;
+  background: rgba( 255, 0, 0, 0.15 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 10px );
+-webkit-backdrop-filter: blur( 10px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .summary-title.color2 {
-  background-color: #e0f0e0;
+  background: rgba( 255, 0, 0, 0.15 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 10px );
+-webkit-backdrop-filter: blur( 10px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .summary-title.color3 {
-  background-color: #e0e0f0;
+  background: rgba( 255, 0, 0, 0.15 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 10px );
+-webkit-backdrop-filter: blur( 10px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 /* Chatbox */
 .chatbox {
-  color: #000000;
+  color: #ffffff;
   position: fixed;
   right: 1rem;
   bottom: 1rem;
+  background: rgba( 255, 0, 0, 0.15 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 10px );
+-webkit-backdrop-filter: blur( 10px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .chatbox ul {
   overflow: scroll;
@@ -414,7 +499,13 @@ img.large {
 }
 
 .support-users {
-  background: #f0f0f0;
+  background: rgba( 255, 0, 0, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 10px );
+  -webkit-backdrop-filter: blur( 10px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
   height: 100%;
 }
 .support-users li {
