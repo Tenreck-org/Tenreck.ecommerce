@@ -12,8 +12,10 @@ body {
   background: #360033;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #0b8793, #360033);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #0b8793, #360033); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  transition: all .5s;
 }
+
+
 #root {
   height: 100%;
 }
@@ -45,6 +47,9 @@ header {
   -webkit-backdrop-filter: blur( 10px );
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
+  position: fixed;
+  z-index: 100;
+  width: 100%;
 }
 main {
   grid-area: main;
@@ -193,6 +198,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   z-index: 1000;
   transform: translateX(-30rem);
   transition: all 0.5s;
+  z-index: 101;
 }
 aside.open {
   transform: translateX(0);
@@ -387,6 +393,12 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-right: none;
   margin-left: 0.5rem;
 }
+
+@media (max-width: 640px){
+  .search input {
+    display: none;
+  }
+}
 .active {
   font-weight: bold;
 }
@@ -560,3 +572,4 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .support-users .unread {
   background-color: #f02020;
 }
+
