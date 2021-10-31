@@ -254,11 +254,11 @@ function App() {
           ></SellerRoute>
 
           <Route path="/" component={HomeScreen} exact></Route>
-          <Route path="/privacy&policy" component={PrivacyPolicy}></Route>
+          <Route path="/privacypolicy" component={PrivacyPolicy}></Route>
         </main>
         <footer className="row center">
           {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-          <div>All right reserved by Tenreck 2021 <a href="/privacy&policy">privacy policy</a></div>{' '}
+          <div>All right reserved by Tenreck 2021 <Link to="/privacypolicy"> Privacy Policy </Link></div>{' '}
         </footer>
       </div>
     </BrowserRouter>
