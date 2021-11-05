@@ -35,13 +35,6 @@ function ShippingScreen(props) {
             </input>
           </li>
           <li>
-            <label htmlFor="functions">
-              Address
-          </label>
-            <input type="text" name="functions" id="functions" onChange={(e) => setFunctions(e.target.value)}>
-            </input>
-          </li>
-          <li>
             <label htmlFor="city">
               City
           </label>
