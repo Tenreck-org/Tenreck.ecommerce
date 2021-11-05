@@ -24,26 +24,26 @@ function ShippingScreen(props) {
       <form onSubmit={submitHandler} >
         <ul className="form-container">
           <li>
-            <h2>Shipping</h2>
+            <h2>Detail</h2>
           </li>
 
           <li>
             <label htmlFor="address">
-              Address
+              Features
           </label>
             <input type="text" name="address" id="address" onChange={(e) => setAddress(e.target.value)}>
             </input>
           </li>
           <li>
             <label htmlFor="city">
-              City
+              Title
           </label>
             <input type="text" name="city" id="city" onChange={(e) => setCity(e.target.value)}>
             </input>
           </li>
           <li>
             <label htmlFor="postalCode">
-              Postal Code
+              Resources
           </label>
             <input type="text" name="postalCode" id="postalCode" onChange={(e) => setPostalCode(e.target.value)}>
             </input>
