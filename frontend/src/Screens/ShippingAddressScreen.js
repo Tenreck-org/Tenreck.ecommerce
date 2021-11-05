@@ -69,7 +69,7 @@ export default function ShippingAddressScreen(props) {
       <CheckoutSteps step1 step2></CheckoutSteps>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Website info</h1>
+          <h1>Project Info</h1>
         </div>
         <div>
           <label htmlFor="fullName">Full Name</label>
@@ -83,7 +83,7 @@ export default function ShippingAddressScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="address">Explain How your website should look</label>
+          <label htmlFor="address">Features</label>
           <input
             type="text"
             id="address"
@@ -105,7 +105,7 @@ export default function ShippingAddressScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="postalCode">Link where you have stored resources</label>
+          <label htmlFor="postalCode">Resources</label>
           <input
             type="text"
             id="postalCode"
