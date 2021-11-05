@@ -19,10 +19,9 @@ export default function ShippingAddressScreen(props) {
   }
   const [fullName, setFullName] = useState(shippingAddress.fullName);
   const [address, setAddress] = useState(shippingAddress.address);
-  const [functions, setFunctions] = useState(shippingAddress.fucntions);
   const [city, setCity] = useState(shippingAddress.city);
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
-  const [email, setEmail] = useState(shippingAddress.email);
+  const [country, setCountry] = useState(shippingAddress.country);
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
@@ -43,7 +42,7 @@ export default function ShippingAddressScreen(props) {
           address,
           city,
           postalCode,
-          email,
+          country,
           lat: newLat,
           lng: newLng,
         })
@@ -58,7 +57,7 @@ export default function ShippingAddressScreen(props) {
         address,
         city,
         postalCode,
-        email,
+        country,
         lat,
         lng,
       })
@@ -84,24 +83,13 @@ export default function ShippingAddressScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="address">Shipping Address</label>
+          <label htmlFor="address">Explain How your website should look</label>
           <input
             type="text"
             id="address"
-            placeholder="Tell us your shipping address"
+            placeholder="Enter address"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            required
-          ></input>
-        </div>
-        <div>
-          <label htmlFor="functions">Functions of the website</label>
-          <input
-            type="text"
-            id="functions"
-            placeholder="Tell us what should be the functions of your website"
-            value={functions}
-            onChange={(e) => setFunctions(e.target.value)}
             required
           ></input>
         </div>
@@ -117,7 +105,7 @@ export default function ShippingAddressScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="postalCode">Resources</label>
+          <label htmlFor="postalCode">Link where you have stored resources</label>
           <input
             type="text"
             id="postalCode"
@@ -128,13 +116,13 @@ export default function ShippingAddressScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="country">Country</label>
           <input
             type="text"
-            id="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            id="country"
+            placeholder="Enter country"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
             required
           ></input>
         </div>
