@@ -260,7 +260,7 @@ function App() {
         </main>
         <footer className="row center">
           {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-          <div className="footer">All right reserved by Tenreck 2021 <a href="/privacyandpolicy">privacy policy</a><a href="/termofcondition"> Terms Of Conditions</a></div>{' '}
+          <div className="footer">All right reserved by Tenreck 2021 <a href="/privacyandpolicy"> privacy policy </a> <a href="/termofcondition"> Terms Of Conditions</a></div>{' '}
         </footer>
       </div>
     </BrowserRouter>
