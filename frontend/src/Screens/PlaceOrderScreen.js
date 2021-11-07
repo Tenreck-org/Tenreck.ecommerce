@@ -18,7 +18,7 @@ export default function PlaceOrderScreen(props) {
   cart.itemsPrice = toPrice(
     cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
   );
-  cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
+  cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(5);
   cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
   const dispatch = useDispatch();
@@ -39,10 +39,10 @@ export default function PlaceOrderScreen(props) {
           <ul>
             <li>
               <div className="card card-body">
-                <h2>Website</h2>
+                <h2>Order</h2>
                 <p>
                   <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
-                  <strong>email: </strong> {cart.shippingAddress.address},
+                  <strong>Detail: </strong> {cart.shippingAddress.address},
                   {cart.shippingAddress.city}, {cart.shippingAddress.postalCode}
                   ,{cart.shippingAddress.country}
                 </p>

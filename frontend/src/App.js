@@ -32,6 +32,7 @@ import DashboardScreen from './Screens/DashboardScreen';
 import SupportScreen from './Screens/SupportScreen';
 import ChatBox from './components/ChatBox';
 import PrivacyPolicy from './Screens/P&Pscreen';
+import Tos from './Screens/TosScreen'
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -254,11 +255,12 @@ function App() {
           ></SellerRoute>
 
           <Route path="/" component={HomeScreen} exact></Route>
-          <Route path="/privacy&policy" component={PrivacyPolicy}></Route>
+          <Route path="/privacyandpolicy" component={PrivacyPolicy}></Route>
+          <Route path="/termofcondition" component={Tos}></Route>
         </main>
         <footer className="row center">
           {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-          <div>All right reserved by Tenreck 2021 <a href="/privacy&policy">privacy policy</a></div>{' '}
+          <div className="footer">All right reserved by Tenreck 2021 <a href="/privacyandpolicy"> privacy policy </a> <a href="/termofcondition"> Terms Of Conditions</a></div>{' '}
         </footer>
       </div>
     </BrowserRouter>

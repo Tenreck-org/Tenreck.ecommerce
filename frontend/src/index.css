@@ -21,12 +21,22 @@ body {
 }
 
 /* Layout */
-body, h2 , h1, h3, p, a , i{
-  color: #dadada;
+body, h2 , h1, h3, p, a , i , .fa , button, select {
+  color: #fff;
 }
 
 span {
   color: #ffffff;
+}
+
+.footer a {
+  text-decoration: underline;
+}
+
+p.D1 {
+  font-weight: bold;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .grid-container {
@@ -386,12 +396,12 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .search button {
   border-radius: 0 0.5rem 0.5rem 0;
   border-right: none;
-  margin-right: 0.5rem;
+  margin-right: 0.1rem;
 }
 .search input {
   border-radius: 0.5rem 0 0 0.5rem;
   border-right: none;
-  margin-left: 0.5rem;
+  margin-left: 0.1rem;
 }
 
 @media (max-width: 640px){
