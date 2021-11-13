@@ -1,3 +1,5 @@
+// pre installed data for testing
+
 const data = {
   products: [
     {
