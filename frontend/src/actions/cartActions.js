@@ -8,7 +8,8 @@ import {
 } from '../constants/cartConstants';
 
 export const addToCart = (productId, qty) => async (dispatch, getState) => {
-  const { data } = await Axios.get(`/api/products/${productId}`);
+  const API_URL = process.env.API
+  const { data } = await Axios.get(`$(API_URL)/api/products/${productId}`);
   const {
     cart: { cartItems },
   } = getState();
