@@ -8,13 +8,27 @@ import productRouter from './routers/productRouter.js';
 import userRouter from './routers/userRouter.js';
 import orderRouter from './routers/orderRouter.js';
 import uploadRouter from './routers/uploadRouter.js';
-
+import cors from 'cors';
 dotenv.config();
+
+// middleware -->>>
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
+const allowCrossDomain = function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+  next();
+}
+
+  app.use(allowCrossDomain)
+
+// mongodb connection
 mongoose.connect('mongodb+srv://tenreck:tenreck@123@tenreck.ysmix.mongodb.net/Tenreck?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
