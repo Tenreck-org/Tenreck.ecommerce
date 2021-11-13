@@ -41,3 +41,5 @@ export const ratings = [
     rating: 1,
   },
 ];
+
+// holds the variable strings ex. rating, prices for search

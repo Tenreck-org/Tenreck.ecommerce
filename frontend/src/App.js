@@ -45,6 +45,8 @@ function App() {
     dispatch(signout());
   };
 
+
+  // sidebar category >>>
   const productCategoryList = useSelector((state) => state.productCategoryList);
   const {
     loading: loadingCategories,
@@ -57,6 +59,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="grid-container">
+        {/*Header ->>>  */}
         <header className="row">
           <div>
             <button
@@ -147,6 +150,8 @@ function App() {
             )}
           </div>
         </header>
+
+        {/*SIDEBAR ->>>>  */}
         <aside className={sidebarIsOpen ? 'open' : ''}>
           <ul className="categories">
             <li>
@@ -177,6 +182,7 @@ function App() {
             )}
           </ul>
         </aside>
+        {/* Routes */}
         <main>
           <Route path="/seller/:id" component={SellerScreen}></Route>
           <Route path="/cart/:id?" component={CartScreen}></Route>
@@ -258,6 +264,7 @@ function App() {
           <Route path="/privacyandpolicy" component={PrivacyPolicy}></Route>
           <Route path="/termofcondition" component={Tos}></Route>
         </main>
+        {/* Footer >>> */}
         <footer className="row center">
           {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
           <div className="footer">All right reserved by Tenreck 2021 <a href="/privacyandpolicy"> privacy policy </a> <a href="/termofcondition"> Terms Of Conditions</a></div>{' '}
