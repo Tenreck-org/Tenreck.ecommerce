@@ -5,5 +5,4 @@ const instance = axios.create({
   baseURL: "https://api.tenreck.tech",
 });
 
-
 export default instance;
