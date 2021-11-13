@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import Axios from '../components/Axios';
 import {
   USER_DETAILS_FAIL,
   USER_DETAILS_REQUEST,

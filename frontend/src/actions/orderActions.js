@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import Axios from '../components/Axios';
 import { CART_EMPTY } from '../constants/cartConstants';
 import {
   ORDER_CREATE_FAIL,

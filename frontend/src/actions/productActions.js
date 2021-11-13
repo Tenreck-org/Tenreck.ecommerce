@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import Axios from '../components/Axios';
 import {
   PRODUCT_CREATE_FAIL,
   PRODUCT_CREATE_REQUEST,
