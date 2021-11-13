@@ -30,6 +30,7 @@ export default function CartScreen(props) {
     <div className="row top">
       <div className="col-2">
         <h1>Shopping Cart</h1>
+        {/* Inside shopping cart */}
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         {cartItems.length === 0 ? (
           <MessageBox>
@@ -85,12 +86,14 @@ export default function CartScreen(props) {
         <div className="card card-body">
           <ul>
             <li>
+              {/* Subtotal */}
               <h2>
                 Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} items) : $
                 {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
               </h2>
             </li>
             <li>
+              {/* Checkout Button */}
               <button
                 type="button"
                 onClick={checkoutHandler}
