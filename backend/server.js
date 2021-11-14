@@ -46,9 +46,9 @@ app.get('/api/config/google', (req, res) => {
 });
 const __dirname = path.resolve();
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
-app.use(express.static(path.join(__dirname, '/frontend/build')));
+app.use(express.static(path.join(__dirname, './')));
 app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
+  res.sendFile(path.join(__dirname, 'backend.html'))
 );
 
 
@@ -59,7 +59,7 @@ app.use((err, req, res, next) => {
 const port = process.env.PORT || 5000;
 
 const httpServer = http.Server(app);
-const io = new Server(httpServer, { cors: { origin: '*' } });
+const io = new Server(httpServer, { cors: { origin: 'https://tenreck.tech' } });
 const users = [];
 
 io.on('connection', (socket) => {
