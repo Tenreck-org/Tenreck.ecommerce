@@ -261,8 +261,8 @@ function App() {
           ></SellerRoute>
 
           <Route path="/" component={HomeScreen} exact></Route>
-          <Route path="/privacyandpolicy" component={PrivacyPolicy}></Route>
-          <Route path="/termofcondition" component={Tos}></Route>
+          <Route exact path="/privacyandpolicy" component={PrivacyPolicy}></Route>
+          <Route exact path="/termofcondition" component={Tos}></Route>
         </main>
         {/* Footer >>> */}
         <footer className="row center">
