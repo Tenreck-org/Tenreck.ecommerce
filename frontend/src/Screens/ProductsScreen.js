@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
+import axios from '../components/Axios';
 import {
   saveProduct,
   listProducts,
