@@ -261,6 +261,10 @@ function App() {
           ></SellerRoute>
 
           <Route path="/" component={HomeScreen} exact></Route>
+
+          <Route exact path="/privacyandpolicy" component={PrivacyPolicy}></Route>
+          <Route exact path="/termofcondition" component={Tos}></Route>
+
           <Route path="/privacypolicy" component={PrivacyPolicy}></Route>
           <Route path="/termofcondition" component={Tos}></Route>
         </main>
