@@ -61,8 +61,8 @@ export const isSellerOrAdmin = (req, res, next) => {
 
 export const mailgun = () =>
   mg({
-    apiKey: process.env.MAILGUN_API_KEY,
-    domain: process.env.MAILGUN_DOMIAN,
+    apiKey: process.env.MAILGUN_API_KEY || '5649892c38f490d9bbe0295a4d6229bd-7dcc6512-9ff4e86a',
+    domain: process.env.MAILGUN_DOMIAN || 'tenreck.tech',
   });
 
 export const payOrderEmailTemplate = (order) => {
@@ -121,6 +121,8 @@ export const payOrderEmailTemplate = (order) => {
   ${order.shippingAddress.country},<br/>
   ${order.shippingAddress.postalCode}<br/>
   </p>
+  <hr/>
+  <h1>Your order will be delivered to your mail under 7 days</h1>
   <hr/>
   <p>
   Thanks for shopping with us.
