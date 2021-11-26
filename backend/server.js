@@ -39,7 +39,7 @@ app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
 app.use('/api/orders', orderRouter);
 app.get('/api/config/paypal', (req, res) => {
-  res.send(process.env.PAYPAL_CLIENT_ID || 'putYourKeyHere');
+  res.send(process.env.PAYPAL_CLIENT_ID || 'AXCn43bR2htx6LJ6BlnsTZeJmK23Pt77xZuPhGXJepmenW2AeAX1Ei9owV5rxsO2IEEDpk8qJb__YafD');
 });
 app.get('/api/config/google', (req, res) => {
   res.send(process.env.GOOGLE_API_KEY || '');
