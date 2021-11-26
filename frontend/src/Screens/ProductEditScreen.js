@@ -126,7 +126,7 @@ export default function ProductEditScreen(props) {
                 type="text"
                 placeholder="Enter image"
                 value={image}
-                onChange={(e) => setImage(e.target.value)}
+                onChange={(e) => setImage('https://api.tenreck.tech'+e.target.value)}
               ></input>
             </div>
             <div>

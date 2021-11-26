@@ -124,7 +124,7 @@ export default function OrderScreen(props) {
                       <div className="row">
                         <div>
                           <img
-                            src={item.image}
+                            src={'https://api.tenreck.tech'+item.image}
                             alt={item.name}
                             className="small"
                           ></img>

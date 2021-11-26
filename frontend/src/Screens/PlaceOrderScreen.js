@@ -18,8 +18,8 @@ export default function PlaceOrderScreen(props) {
   cart.itemsPrice = toPrice(
     cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
   );
-  cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(0);
-  cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
+  cart.shippingPrice = toPrice(0);
+  cart.taxPrice = toPrice(0.10 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
   const dispatch = useDispatch();
   const placeOrderHandler = () => {
@@ -65,7 +65,7 @@ export default function PlaceOrderScreen(props) {
                       <div className="row">
                         <div>
                           <img
-                            src={item.image}
+                            src={'https://api.tenreck.tech'+item.image}
                             alt={item.name}
                             className="small"
                           ></img>
