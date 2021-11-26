@@ -142,7 +142,7 @@ function ProductsScreen(props) {
                   name="image"
                   value={image}
                   id="image"
-                  onChange={(e) => setImage(e.target.value)}
+                  onChange={(e) => setImage('htpps://api.tenreck.tech'+e.target.value)}
                 ></input>
                 <input type="file" onChange={uploadFileHandler}></input>
                 {uploading && <div>Uploading...</div>}
