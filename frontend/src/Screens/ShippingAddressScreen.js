@@ -87,7 +87,7 @@ export default function ShippingAddressScreen(props) {
           <input
             type="text"
             id="address"
-            placeholder="Enter address"
+            placeholder="Enter features"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             required
@@ -98,7 +98,7 @@ export default function ShippingAddressScreen(props) {
           <input
             type="text"
             id="city"
-            placeholder="Website Title"
+            placeholder="Title"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             required
@@ -109,7 +109,7 @@ export default function ShippingAddressScreen(props) {
           <input
             type="text"
             id="postalCode"
-            placeholder="https://drive.google.com/?"
+            placeholder="link of your logo or something"
             value={postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
             required
