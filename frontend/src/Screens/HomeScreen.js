@@ -39,7 +39,7 @@ export default function HomeScreen() {
             {sellers.map((seller) => (
               <div key={seller._id}>
                 <Link to={`/seller/${seller._id}`}>
-                  <img src={seller.seller.logo} alt={seller.seller.name} />
+                  <img src={seller.seller.logo} alt={seller.seller.name} className="large_img" />
                   <p className="legend">{seller.seller.name}</p>
                 </Link>
               </div>
