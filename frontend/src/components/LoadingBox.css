@@ -27,7 +27,7 @@
     border-color: transparent;
     animation: spinner-spin 1.2s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, spinner-fade 1.2s linear infinite;
   }
-  
+  /* spinner */
   .spinner:before {
     border-top-color: #66e6ff;
   }
