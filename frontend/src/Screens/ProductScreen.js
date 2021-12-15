@@ -60,7 +60,7 @@ export default function ProductScreen(props) {
             <div className="col-2">
               <img
                 className="product_img large"
-                src={'https://api.tenreck.tech'+product.image}
+                src={'https://api.tenreck.com'+product.image}
                 alt={product.name}
               ></img>
             </div>
