@@ -81,7 +81,7 @@ function App() {
             ></Route>
           </div>
           <div>
-            <Link to="/cart">
+            <Link to="/cart" className="cart">
               Cart
               {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>

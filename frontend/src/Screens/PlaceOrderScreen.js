@@ -65,9 +65,9 @@ export default function PlaceOrderScreen(props) {
                       <div className="row">
                         <div>
                           <img
-                            src={'https://api.tenreck.tech'+item.image}
+                            src={'https://api.tenreck.com'+item.image}
                             alt={item.name}
-                            className="small"
+                            className="medium"
                           ></img>
                         </div>
                         <div className="min-30">

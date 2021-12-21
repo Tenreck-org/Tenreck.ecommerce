@@ -4,11 +4,12 @@
   "private": true,
   "dependencies": {
     "@react-google-maps/api": "^1.13.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
+    "@testing-library/jest-dom": "^5.1.0",
+    "@testing-library/react": "^10.0.0",
     "@testing-library/user-event": "^7.1.2",
-    "axios": "^0.20.0",
+    "axios": "^0.24.0",
     "http-proxy-middleware": "^2.0.1",
+    "immer": "^9.0.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-google-charts": "^3.0.15",
@@ -16,10 +17,10 @@
     "react-redux": "^7.2.1",
     "react-responsive-carousel": "^3.2.10",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "5.0.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "socket.io-client": "^4.0.1"
+    "socket.io-client": "^4.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

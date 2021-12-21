@@ -56,12 +56,11 @@ export default function ProductScreen(props) {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div>
-          <Link to="/">Back to result</Link>
           <div className="row top">
             <div className="col-2">
               <img
-                className="large"
-                src={'https://api.tenreck.tech'+product.image}
+                className="product_img large"
+                src={'https://api.tenreck.com'+product.image}
                 alt={product.name}
               ></img>
             </div>
