@@ -59,6 +59,7 @@ export const isSellerOrAdmin = (req, res, next) => {
   }
 };
 
+
 export const mailgun = () =>
   mg({
     apiKey: process.env.MAILGUN_API_KEY || '5649892c38f490d9bbe0295a4d6229bd-7dcc6512-9ff4e86a',
@@ -113,13 +114,12 @@ export const payOrderEmailTemplate = (order) => {
   <td align="right">${order.paymentMethod}</td>
   </tr>
   </table>
-  <h2>Shipping address</h2>
+  <h2>Detail</h2>
   <p>
-  ${order.shippingAddress.fullName},<br/>
-  ${order.shippingAddress.address},<br/>
-  ${order.shippingAddress.city},<br/>
-  ${order.shippingAddress.country},<br/>
-  ${order.shippingAddress.postalCode}<br/>
+  NAME: ${order.shippingAddress.fullName},<br/>
+  FUNCTIONS: ${order.shippingAddress.address},<br/>
+  COUNTRY: ${order.shippingAddress.country},<br/>
+  RESOURCES: ${order.shippingAddress.postalCode}<br/>
   </p>
   <hr/>
   <h1>Your order will be delivered to your mail under 7 days</h1>
