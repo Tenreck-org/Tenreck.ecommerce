@@ -10,6 +10,7 @@ import {
   ORDER_DELIVER_RESET,
   ORDER_PAY_RESET,
 } from '../constants/orderConstants';
+import Stripe from "react-stripe-checkout";
 
 export default function OrderScreen(props) {
   const orderId = props.match.params.id;
@@ -70,7 +71,23 @@ export default function OrderScreen(props) {
   const deliverHandler = () => {
     dispatch(deliverOrder(order._id));
   };
+  const handleToken = (token) => {
+    try{
+        Axios.post(`/api/orders/${order._id}/pay`, {
+            token: token.id,
+            amount: order.totalPrice
+        })
+    } catch (error){
+        console.log(error)
+    }
+}
 
+const tokenHandeler = (token) => {
+    handleToken(100, token);
+    console.log(token.id)
+    console.log(token)
+}
+console.log(order.paymentMethod)
   return loading ? (
     <LoadingBox></LoadingBox>
   ) : error ? (
@@ -190,11 +207,15 @@ export default function OrderScreen(props) {
                         <MessageBox variant="danger">{errorPay}</MessageBox>
                       )}
                       {loadingPay && <LoadingBox></LoadingBox>}
-
-                      <PayPalButton
+                      {order.paymentMethod === 'paypal' ? <PayPalButton
                         amount={order.totalPrice}
                         onSuccess={successPaymentHandler}
-                      ></PayPalButton>
+                      ></PayPalButton> : <Stripe 
+                stripeKey="pk_test_51KAs1pSI9yQB0Wavf0HivbbWR2jsToXsAeQ7k8okiLeamE2jCp71GiUUIiJle209MqklnKZd972kC3uho02bT3Ds00ovssTCNf"
+                token={tokenHandeler}
+                onSuccess={successPaymentHandler}
+                />}
+                      
                     </>
                   )}
                 </li>

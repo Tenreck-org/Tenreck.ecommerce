@@ -9,6 +9,7 @@ import userRouter from './routers/userRouter.js';
 import orderRouter from './routers/orderRouter.js';
 import uploadRouter from './routers/uploadRouter.js';
 import cors from 'cors';
+import stripeRoutes from './routes/stripeRoutes.js';
 dotenv.config();
 
 // middleware -->>>
@@ -34,6 +35,7 @@ mongoose.connect('mongodb+srv://tenreck:tenreck@123@tenreck.ysmix.mongodb.net/Te
   useUnifiedTopology: true,
   useCreateIndex: true,
 });
+
 app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
@@ -51,6 +53,7 @@ app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, 'backend.html'))
 );
 
+app.use('./api/config/stripe', stripeRoutes);
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: "500"+err.message });
@@ -59,7 +62,7 @@ app.use((err, req, res, next) => {
 const port = process.env.PORT || 5000;
 
 const httpServer = http.Server(app);
-const io = new Server(httpServer, { cors: { origin: 'https://tenreck.tech' } });
+const io = new Server(httpServer, { cors: { origin: 'https://tenreck.com' } });
 const users = [];
 
 io.on('connection', (socket) => {
