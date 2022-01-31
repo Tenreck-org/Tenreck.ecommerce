@@ -14,7 +14,7 @@
       name="description"
       content="Don't know how to make website? don't worry Tenreck is here we will make your website as you want in cheap."
     />
-    <meta property="og:description" content="Don't know how to make website? don't worry Tenreck is here we will make your website as you want in cheap." />
+    <meta property="og:description" content="Don't know how to make website? Don't worry Tenreck is here we will make your website as you want in cheap." />
     <meta name="og:image" content="https://cdn.discordapp.com/attachments/886186881245659166/917788215564460032/tenreck_final_1.png" />
     <meta name="keywords" content="Store , tenreck , tenrec, website , E-commerce , professianal" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.png" />
@@ -22,9 +22,13 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
    
     <link
-      rel="stylesheet"
+      rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
     />
+<!--  The reference to the stylesheet inside of a noscript element works as a fallback for browsers that don't execute JavaScript.    -->
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></noscript>
     <title>Tenreck</title>
   </head>
   <body>
