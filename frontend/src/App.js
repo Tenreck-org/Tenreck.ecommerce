@@ -32,7 +32,8 @@ import DashboardScreen from './Screens/DashboardScreen';
 import SupportScreen from './Screens/SupportScreen';
 import ChatBox from './components/ChatBox';
 import PrivacyPolicy from './Screens/P&Pscreen';
-import Tos from './Screens/TosScreen'
+import Tos from './Screens/TosScreen';
+import Hiring from './Screens/Hiring'
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -264,9 +265,11 @@ function App() {
 
           <Route exact path="/privacyandpolicy" component={PrivacyPolicy}></Route>
           <Route exact path="/termofcondition" component={Tos}></Route>
+          <Route exact path="/hiring" component={Hiring}></Route>
 
           <Route path="/privacypolicy" component={PrivacyPolicy}></Route>
           <Route path="/termofcondition" component={Tos}></Route>
+          <Route path="/hiring" component={Hiring}></Route>
         </main>
         {/* Footer >>> */}
         <footer className="row center">
