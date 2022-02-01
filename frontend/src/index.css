@@ -412,7 +412,7 @@ large_img {
 }
 .table tbody tr:nth-of-type(odd) {
   background: var(--primary); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+
 }
 .table td,
 .table th {
@@ -547,7 +547,7 @@ large_img {
   background: var(--primary);
   border-radius: 10px;
   border: 1px solid ; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+
   height: 100%;
 }
 .support-users li {
@@ -602,4 +602,3 @@ large_img {
 .support-users .unread {
   background-color: #f02020;
 }
-
