@@ -12,6 +12,7 @@ function Hiring() {
             <h1 className="heading1">Jobs</h1>
             <br />
             <Cardjob name='Software Developer' url='https://cdn.discordapp.com/attachments/749964857524224060/937964620130418688/2842680.jpg'/>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><hr />
       </div>
   );
 }
