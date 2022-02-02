@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 
 :root {
-  --primary: #040714;
-  --secondary: #09FA04;
+  --primary: #f8f8f8;
+  --secondary: #8b8b8b;
   --thirdaly: #2D46B9;
   --fourthly: #FB7181;
 }
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
 
 html {
   font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem */
@@ -78,10 +84,6 @@ span {
   color: var(--thirdaly);
 }
 
-.footer a {
-  text-decoration: underline;
-}
-
 p.D1 {
   font-weight: bold;
   font-size: 20px;
@@ -100,9 +102,8 @@ p.D1 {
 }
 header {
   grid-area: header;
-  background: var(--primary);
+  background: #3586ff;
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
   position: fixed;
   z-index: 100;
   width: 100%;
@@ -113,11 +114,55 @@ main {
 }
 footer {
   grid-area: footer;
-  background: var(--primary);
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background: #3586ff;
+
+  min-height: 100px;
+  padding: 25px 50px;
   color: var(--secondary);
+  flex-direction: column;
 }
+
+footer .Social_icon , .menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+footer .Social_icon li , .menu li{
+  list-style: none;
+  padding: 0 10px;
+}
+
+footer .menu li a {
+  text-decoration: none;
+  font-size: 2rem;
+  color: #ffeeef;
+  opacity: 0.75;
+}
+
+footer .Social_icon li a img {
+  width: 50px;
+  filter: invert(8);
+  opacity: 0.75;
+}
+
+.Social_icon li a img:hover , .menu li a:hover {
+  opacity: 1;
+}
+
+footer p {
+  color: #ffeeef;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
 /* Common */
 h1 {
   font-size: 1.8rem;
@@ -181,7 +226,7 @@ button.small {
 }
 /* Header */
 header a {
-  color: var(--secondary);
+  color: var(--primary);
   padding: 1rem;
 }
 a.brand {

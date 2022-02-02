@@ -33,7 +33,9 @@ import SupportScreen from './Screens/SupportScreen';
 import ChatBox from './components/ChatBox';
 import PrivacyPolicy from './Screens/P&Pscreen';
 import Tos from './Screens/TosScreen'
-
+import discordIcon from './static/logo-discord.svg';
+import instagramIcon from './static/logo-instagram.svg';
+import twitterIcon from './static/logo-twitter.svg';
 function App() {
   const cart = useSelector((state) => state.cart);
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
@@ -58,6 +60,7 @@ function App() {
   }, [dispatch]);
   return (
     <BrowserRouter>
+    <div className='app'>
       <div className="grid-container">
         {/*Header ->>>  */}
         <header className="row">
@@ -268,11 +271,31 @@ function App() {
           <Route path="/privacypolicy" component={PrivacyPolicy}></Route>
           <Route path="/termofcondition" component={Tos}></Route>
         </main>
+
+        {/* create a button*/}
+
+
         {/* Footer >>> */}
+        
         <footer className="row center">
-          {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-          <div className="footer">All right reserved by Tenreck 2021 <Link to="/privacypolicy">Privacy and Policy</Link> <Link to="termofcondition">Terms of condition </Link></div>{' '}
+          <div >
+            
+            
+            <ul className='Social_icon'>
+              <li><a href=''><img className='footer_img' src={discordIcon} alt="" /></a></li>
+              <li><a href=''><img className='footer_img' src={instagramIcon} alt="" /></a></li>
+              <li><a href=''><img className='footer_img' src={twitterIcon} alt="" /></a></li>
+              
+            </ul>
+            <ul className="menu">
+              <li><a href="/privacypolicy"> privacy and policy</a></li>
+              <li><a href="/termofcondition"> term of conditions</a></li>
+              <li><a href="/hiring"> Jobs </a></li>
+            </ul>
+            <p>2022 Tenreck | All Rights Are Reserved</p>
+             </div>
         </footer>
+      </div>
       </div>
     </BrowserRouter>
   );
