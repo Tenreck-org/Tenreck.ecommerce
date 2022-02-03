@@ -30,7 +30,7 @@ import MessageBox from './components/MessageBox';
 import MapScreen from './Screens/MapScreen';
 import DashboardScreen from './Screens/DashboardScreen';
 import SupportScreen from './Screens/SupportScreen';
-import ChatBox from './components/ChatBox';
+
 import PrivacyPolicy from './Screens/P&Pscreen';
 import Tos from './Screens/TosScreen'
 import discordIcon from './static/logo-discord.svg';
@@ -72,86 +72,38 @@ function App() {
             >
               <i className="fa fa-bars"></i>
             </button>
-            <Link className="brand" to="/">
-              Tenreck
-            </Link>
-          </div>
-          <div>
+            <div>
             <Route
               render={({ history }) => (
                 <SearchBox history={history}></SearchBox>
               )}
             ></Route>
           </div>
-          <div>
-            <Link to="/cart" className="cart">
+            <Link className="brand" to="/">
+              Tenreck
+            </Link>
+          </div>
+          
+          <ul>
+                <li>
+            <Link to="/cart" className="cart style-btn">
               Cart
               {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
               )}
             </Link>
-            {userInfo ? (
-              <div className="dropdown">
-                <Link to="#">
-                  {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
+            </li>
+            </ul>
+          <ul>
+          {userInfo ? (<li>
+                  <Link to="#" className='underline dropdown-content-link'>
+                  {userInfo.name}{' '}
                 </Link>
-                <ul className="dropdown-content">
-                  <li>
-                    <Link to="/profile">User Profile</Link>
-                  </li>
-                  <li>
-                    <Link to="/orderhistory">Order History</Link>
-                  </li>
-                  <li>
-                    <Link to="#signout" onClick={signoutHandler}>
-                      Sign Out
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            ) : (
-              <Link to="/signin">Sign In</Link>
-            )}
-            {userInfo && userInfo.isSeller && (
-              <div className="dropdown">
-                <Link to="#admin">
-                  Seller <i className="fa fa-caret-down"></i>
-                </Link>
-                <ul className="dropdown-content">
-                  <li>
-                    <Link to="/productlist/seller">Products</Link>
-                  </li>
-                  <li>
-                    <Link to="/orderlist/seller">Orders</Link>
-                  </li>
-                </ul>
-              </div>
-            )}
-            {userInfo && userInfo.isAdmin && (
-              <div className="dropdown">
-                <Link to="#admin">
-                  Admin <i className="fa fa-caret-down"></i>
-                </Link>
-                <ul className="dropdown-content">
-                  <li>
-                    <Link to="/dashboard">Dashboard</Link>
-                  </li>
-                  <li>
-                    <Link to="/productlist">Products</Link>
-                  </li>
-                  <li>
-                    <Link to="/orderlist">Orders</Link>
-                  </li>
-                  <li>
-                    <Link to="/userlist">Users</Link>
-                  </li>
-                  <li>
-                    <Link to="/support">Support</Link>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
+                  </li> ):(<li>
+              <Link to="/signin" className='style-btn'>Sign In</Link>
+              </li>)}
+              
+              </ul>
         </header>
 
         {/*SIDEBAR ->>>>  */}
@@ -167,22 +119,78 @@ function App() {
                 <i className="fa fa-close"></i>
               </button>
             </li>
-            {loadingCategories ? (
-              <LoadingBox></LoadingBox>
-            ) : errorCategories ? (
-              <MessageBox variant="danger">{errorCategories}</MessageBox>
+
+            <div className='nav-content'>
+            <div className="dropdown-content">
+              
+            </div>
+            {userInfo ? (
+              <div className="dropdown-content">
+                
+                <ul className="">
+                  
+                  <li>
+                    <Link to="/profile">User Profile</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderhistory">Order History</Link>
+                  </li>
+                  <li>
+                    <Link to="#signout" className='style-btn' onClick={signoutHandler}>
+                      Sign Out
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             ) : (
-              categories.map((c) => (
-                <li key={c}>
-                  <Link
-                    to={`/search/category/${c}`}
-                    onClick={() => setSidebarIsOpen(false)}
-                  >
-                    {c}
-                  </Link>
-                </li>
-              ))
+              <div className="dropdown-content">
+
+              
+              </div>
             )}
+            {userInfo && userInfo.isSeller && (
+              <div className="dropdown-content">
+                <Link to="#admin" className='underline dropdown-content-link'>
+                  Seller
+                </Link>
+                <ul className="">
+                  <li>
+                    <Link to="/productlist/seller">Products</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderlist/seller">Orders</Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+            {userInfo && userInfo.isAdmin && (
+              <div className="dropdown-content">
+                <ul>
+                <li>
+                <Link to="#admin"  className='underline dropdown-content-link'>
+                  Admin 
+                </Link>
+                </li>
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                  <li>
+                    <Link to="/productlist">Products</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderlist">Orders</Link>
+                  </li>
+                  <li>
+                    <Link to="/userlist">Users</Link>
+                  </li>
+                  <li>
+                    <Link to="/support">Support</Link>
+                  </li>
+                  </ul>
+              </div>
+            )}
+            
+          </div>
           </ul>
         </aside>
         {/* Routes */}

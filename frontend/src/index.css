@@ -181,9 +181,7 @@ h2 {
 a {
   text-decoration: none;
 }
-a:hover {
-  color: var(--fourthly);
-}
+
 ul {
   padding: 0;
   margin: 0;
@@ -208,11 +206,9 @@ button {
   background: var(--primary);
   cursor: pointer;
 }
-input:hover,
-select:hover,
-textarea:hover,
-button:hover {
-  border: 0.1rem var(--thirdaly) solid;
+
+button {
+  border: none;
 }
 button.primary {
   background: var(--primary); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -230,9 +226,12 @@ header a {
   padding: 1rem;
 }
 a.brand {
-  color: var(--secondary);
+  background: -webkit-linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(138, 228, 255) 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 3rem;
-  font-weight: bold;
+  font-weight: bolder;
+  
 }
 .badge {
   background-color: var(--thirdaly);
@@ -277,12 +276,11 @@ a.brand {
 }
 /* Aside */
 aside {
-  position: fixed;
-  width: 30rem;
-  height: 100%;
+  width: 100%;
+  height: 100vh;
   background: var(--primary);
   z-index: 1000;
-  transform: translateX(-30rem);
+  transform: translateX(-100vw);
   transition: all 0.5s;
   z-index: 101;
 }
@@ -298,9 +296,6 @@ button.open-sidebar {
   cursor: pointer;
 }
 
-button , input , textarea, select{
-  border: 1px solid var(--secondary);
-}
 
 aside ul {
   padding: 0;
@@ -407,36 +402,66 @@ large_img {
 }
 /* Dropdown */
 .dropdown{
-  display: inline-block;
-  position: relative;
-  border: var(--secondary) solid 1px;
-  margin: 10px;
-  padding: 10px 5px;
-  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: #404040 2px solid;
 }
 
-.cart {
-  border: var(--secondary) solid 1px;
-  margin: 10px;
-  padding: 10px 20px;
-  border-radius: 10px;
+.right {
+  float: right;
+}
+
+.cart , .style-btn {
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(2,255,99,1) 0%, rgba(53,134,255,1) 100%);
+  padding: 5px 20px;
+  color: #f8f8f8;
+  font-size: 15px;
+  border-radius: 20px;
+  transition: ease-in-out 2s;
+}
+
+.underline {
+  border-bottom: 4px solid ;
+  border-image: linear-gradient(90deg, rgba(2,255,99,1) 0%, rgba(53,134,255,1) 100%);
+}
+
+.cart:hover , .style-btn:hover {
+  background: -webkit-linear-gradient(90deg, rgba(2,255,99,1) 0%, rgba(53,134,255,1) 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: ease-in-out 2s;
+}
+
+.nav-content ul li {
+  font-size: 30px;
+    border-radius: 0.5em;
+    width: 12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: sans-serif;
+    letter-spacing: .1em;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: .5s;
 }
 
 .dropdown-content {
-  position: absolute;
-  display: none;
+  display: flex;
+  justify-content: center;
+  margin: auto;
   right: 0;
   min-width: 12rem;
-  padding: 1rem;
   z-index: 1;
   background: var(--primary);
-  margin: 0;
-  margin-top: 0.4rem;
-  border-radius: 0.5rem;
 }
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+
 /* Checkout Steps */
 .checkout-steps > div {
   border-top: 0.3rem var(--fourthly) solid;
