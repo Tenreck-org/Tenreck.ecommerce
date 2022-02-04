@@ -4,6 +4,7 @@ import data from '../data.js';
 import Product from '../models/productModel.js';
 import User from '../models/userModel.js';
 import { isAdmin, isAuth, isSellerOrAdmin } from '../utils.js';
+const escapeHtml = require('escape-html');
 
 const productRouter = express.Router();
 
@@ -96,7 +97,7 @@ productRouter.get(
       'seller.name seller.logo seller.rating seller.numReviews'
     );
     if (product) {
-      res.send(product);
+      res.send(escapeHtml(product));
     } else {
       res.status(404).send({ message: 'Product Not Found' });
     }

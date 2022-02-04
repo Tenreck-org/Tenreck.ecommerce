@@ -3,6 +3,7 @@ import multer from 'multer';
 import multerS3 from 'multer-s3';
 import aws from 'aws-sdk';
 import config from '../config';
+const escapeHtml = require('escape-html');
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
@@ -18,7 +19,7 @@ const upload = multer({ storage });
 const router = express.Router();
 
 router.post('/', upload.single('image'), (req, res) => {
-  res.send(`/${req.file.path}`);
+  res.send(escapeHtml(`/${req.file.path}`)); // fixed XSS vulnerability
 });
 
 aws.config.update({
@@ -37,6 +38,6 @@ const storageS3 = multerS3({
 });
 const uploadS3 = multer({ storage: storageS3 });
 router.post('/s3', uploadS3.single('image'), (req, res) => {
-  res.send(req.file.location);
+  res.send(escapeHtml(req.file.location)); // fixed XSS vulnerability
 });
 export default router;

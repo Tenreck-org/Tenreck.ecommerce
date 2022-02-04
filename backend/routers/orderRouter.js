@@ -3,6 +3,8 @@ import expressAsyncHandler from 'express-async-handler';
 import Order from '../models/orderModel.js';
 import User from '../models/userModel.js';
 import Product from '../models/productModel.js';
+const escapeHtml = require('escape-html');
+
 import {
   isAdmin,
   isAuth,
@@ -113,7 +115,7 @@ orderRouter.get(
   expressAsyncHandler(async (req, res) => {
     const order = await Order.findById(req.params.id);
     if (order) {
-      res.send(order);
+      res.send(escapeHtml(order)); // fixed XSS vulnerability
     } else {
       res.status(404).send({ message: 'Order Not Found' });
     }

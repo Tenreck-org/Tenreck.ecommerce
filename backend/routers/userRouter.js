@@ -4,6 +4,7 @@ import bcrypt from 'bcryptjs';
 import data from '../data.js';
 import User from '../models/userModel.js';
 import { generateToken, isAdmin, isAuth } from '../utils.js';
+const escapeHtml = require("escape-html")
 
 const userRouter = express.Router();
 
@@ -72,7 +73,7 @@ userRouter.get(
   expressAsyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id);
     if (user) {
-      res.send(user);
+      res.send(escapeHtml(user)); // fixed XSS vulnerability
     } else {
       res.status(404).send({ message: 'User Not Found' });
     }

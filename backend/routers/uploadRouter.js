@@ -1,7 +1,7 @@
 import multer from 'multer';
 import express from 'express';
 import { isAuth } from '../utils.js';
-
+const escapeHtml = require('escape-html');
 const uploadRouter = express.Router();
 
 const storage = multer.diskStorage({
@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 uploadRouter.post('/', isAuth, upload.single('image'), (req, res) => {
-  res.send(`/${req.file.path}`);
+  res.send(escapeHtml(`/${req.file.path}`)); // fixed XSS vulnerability
 });
 
 export default uploadRouter;
