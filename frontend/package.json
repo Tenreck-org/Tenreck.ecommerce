@@ -10,7 +10,7 @@
     "axios": "^0.24.0",
     "escape-html": "^1.0.3",
     "http-proxy-middleware": "^2.0.1",
-    "immer": "^9.0.7",
+    "immer": "^9.0.12",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-google-charts": "^3.0.15",
