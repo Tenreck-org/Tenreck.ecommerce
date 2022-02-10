@@ -26,7 +26,7 @@ export default function HomeScreen() {
     dispatch(listTopSellers());
   }, [dispatch]);
   return (
-    <div>
+    <div className='home'>
       <h2>Top Sellers</h2>
       {loadingSellers ? (
         <LoadingBox></LoadingBox>
@@ -35,7 +35,7 @@ export default function HomeScreen() {
       ) : (
         <>
           {sellers.length === 0 && <MessageBox>No Seller Found</MessageBox>}
-          <Carousel showArrows autoPlay showThumbs={false}>
+          {/* <Carousel showArrows autoPlay showThumbs={false}>
             {sellers.map((seller) => (
               <div key={seller._id}>
                 <Link to={`/seller/${seller._id}`}>
@@ -44,7 +44,7 @@ export default function HomeScreen() {
                 </Link>
               </div>
             ))}
-          </Carousel>
+          </Carousel> */}
         </>
       )}
       <h2>Featured Products</h2>

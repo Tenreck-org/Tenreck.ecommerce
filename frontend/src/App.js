@@ -30,7 +30,7 @@ import MessageBox from './components/MessageBox';
 import MapScreen from './Screens/MapScreen';
 import DashboardScreen from './Screens/DashboardScreen';
 import SupportScreen from './Screens/SupportScreen';
-
+import './App.css'
 import PrivacyPolicy from './Screens/P&Pscreen';
 import Tos from './Screens/TosScreen'
 import discordIcon from './static/logo-discord.svg';
@@ -61,76 +61,49 @@ function App() {
   return (
     <BrowserRouter>
     <div className='app'>
-      <div className="grid-container">
-        {/*Header ->>>  */}
-        <header className="row">
-          <div>
-            <button
-              type="button"
-              className="open-sidebar"
-              onClick={() => setSidebarIsOpen(true)}
-            >
-              <i className="fa fa-bars"></i>
-            </button>
-            <div>
-            <Route
+      <div className="header">
+        <div className="logo">
+          <Link to="/">Tenreck</Link>
+        </div>
+        <div className="searchbar">
+        <Route
               render={({ history }) => (
                 <SearchBox history={history}></SearchBox>
               )}
             ></Route>
-          </div>
-            <Link className="brand" to="/">
-              Tenreck
-            </Link>
-          </div>
-          
-          <ul>
-                <li>
-            <Link to="/cart" className="cart style-btn">
+        </div>
+        <div className="menu_content">
+        
+            <Link to="/cart" className="cart eff1">
               Cart
               {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
               )}
-            </Link>
-            </li>
-            </ul>
-          <ul>
-          {userInfo ? (<li>
-                  <Link to="#" className='underline dropdown-content-link'>
+              </Link>
+          {userInfo ? (
+                  <Link to="#" className='style-btn'>
                   {userInfo.name}{' '}
                 </Link>
-                  </li> ):(<li>
+                   ):(
               <Link to="/signin" className='style-btn'>Sign In</Link>
-              </li>)}
+                   )}
               
-              </ul>
-        </header>
-
-        {/*SIDEBAR ->>>>  */}
-        <aside className={sidebarIsOpen ? 'open' : ''}>
-          <ul className="categories">
-            <li>
-              <strong>Categories</strong>
-              <button
-                onClick={() => setSidebarIsOpen(false)}
-                className="close-sidebar"
-                type="button"
-              >
-                <i className="fa fa-close"></i>
-              </button>
-            </li>
-
-            <div className='nav-content'>
-            <div className="dropdown-content">
               
-            </div>
-            {userInfo ? (
-              <div className="dropdown-content">
-                
-                <ul className="">
-                  
+            
+            
+        </div>
+        {userInfo ? (
+          <div className="menu">
+          <input type="checkbox" id="active" />
+          <label for="active" class="menu-btn"><span></span></label>
+          <label for="active" class="close"></label>
+          <div class="wrapper">
+      <ul>
+      {userInfo ? (
+              
+                  <>
                   <li>
-                    <Link to="/profile">User Profile</Link>
+                    <Link className="eff1" to="/profile">User Profile</Link>
                   </li>
                   <li>
                     <Link to="/orderhistory">Order History</Link>
@@ -140,32 +113,31 @@ function App() {
                       Sign Out
                     </Link>
                   </li>
-                </ul>
-              </div>
+                </>
             ) : (
               <div className="dropdown-content">
 
               
               </div>
             )}
-            {userInfo && userInfo.isSeller && (
-              <div className="dropdown-content">
+<li>{userInfo && userInfo.isSeller && (
+              <>
                 <Link to="#admin" className='underline dropdown-content-link'>
                   Seller
                 </Link>
-                <ul className="">
+                
                   <li>
                     <Link to="/productlist/seller">Products</Link>
                   </li>
                   <li>
                     <Link to="/orderlist/seller">Orders</Link>
                   </li>
-                </ul>
-              </div>
-            )}
-            {userInfo && userInfo.isAdmin && (
-              <div className="dropdown-content">
-                <ul>
+                
+              </>
+            )}</li>
+<li>{userInfo && userInfo.isAdmin && (
+              <>
+                
                 <li>
                 <Link to="#admin"  className='underline dropdown-content-link'>
                   Admin 
@@ -186,13 +158,22 @@ function App() {
                   <li>
                     <Link to="/support">Support</Link>
                   </li>
-                  </ul>
-              </div>
-            )}
-            
-          </div>
-          </ul>
-        </aside>
+                  
+              </>
+            )}</li>
+
+</ul>
+</div>
+        </div>
+        ): (
+          <div className="nothing"></div>
+        )}
+        
+        
+    
+      </div>
+      
+
         {/* Routes */}
         <main>
           <Route path="/seller/:id" component={SellerScreen}></Route>
@@ -275,9 +256,6 @@ function App() {
 
           <Route exact path="/privacyandpolicy" component={PrivacyPolicy}></Route>
           <Route exact path="/termofcondition" component={Tos}></Route>
-
-          <Route path="/privacypolicy" component={PrivacyPolicy}></Route>
-          <Route path="/termofcondition" component={Tos}></Route>
         </main>
 
         {/* create a button*/}
@@ -303,7 +281,6 @@ function App() {
             <p>2022 Tenreck | All Rights Are Reserved</p>
              </div>
         </footer>
-      </div>
       </div>
     </BrowserRouter>
   );
