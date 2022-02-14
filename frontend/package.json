@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.25.0",
     "escape-html": "^1.0.3",
-    "http-proxy-middleware": "^2.0.1",
+    "http-proxy-middleware": "^2.0.2",
     "immer": "^9.0.12",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
