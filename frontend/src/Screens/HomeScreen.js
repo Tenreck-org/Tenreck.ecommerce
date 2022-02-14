@@ -35,19 +35,19 @@ export default function HomeScreen() {
       ) : (
         <>
           {sellers.length === 0 && <MessageBox>No Seller Found</MessageBox>}
-          {/* <Carousel showArrows autoPlay showThumbs={false}>
+          <Carousel showArrows autoPlay showThumbs={false}>
             {sellers.map((seller) => (
               <div key={seller._id}>
                 <Link to={`/seller/${seller._id}`}>
-                  <img src={seller.seller.logo} alt={seller.seller.name} className="large_img" />
+                  <img src={seller.seller.logo} alt={seller.seller.name} className="carousel" />
                   <p className="legend">{seller.seller.name}</p>
                 </Link>
               </div>
             ))}
-          </Carousel> */}
+          </Carousel>
         </>
       )}
-      <h2>Featured Products</h2>
+      <h2 className='home_title'>Featured Products</h2>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
