@@ -38,7 +38,7 @@ import instagramIcon from "./static/logo-instagram.svg";
 import twitterIcon from "./static/logo-twitter.svg";
 import "./style/HomeScreen.css";
 import "./style/ProductScreen.css";
-
+import "./style/CardScreen.css";
 function App() {
   const cart = useSelector((state) => state.cart);
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);

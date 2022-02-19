@@ -87,7 +87,7 @@ const tokenHandeler = (token) => {
     console.log(token.id)
     console.log(token)
 }
-console.log(order.paymentMethod)
+
   return loading ? (
     <LoadingBox></LoadingBox>
   ) : error ? (
