@@ -40,7 +40,7 @@
 }
 
 .product_title {
-  font-size: 3vw;
+  font-size: 2rem;
   text-decoration: none;
   color: #2a2f38;
   font-family: "Courier New", Courier, monospace;
@@ -49,14 +49,14 @@
 .rating {
   color: #ffa600;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.5vw;
+  font-size: 1.5rem;
 }
 
 .price {
   color: #0652f5;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 3vw;
+  font-size: 2rem;
   font-weight: bolder;
 }
 
@@ -64,7 +64,7 @@
   color: #00194e;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 1.5vw;
+  font-size: 1.5rem;
   text-decoration: none;
 }
 
@@ -73,4 +73,12 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   color: #423e5a;
+}
+
+.Cart_select {
+  color: #2a2f38;
+  padding: 5px 30px;
+  border-radius: 20px;
+  background: #f2f4ff;
+  margin: 10px;
 }

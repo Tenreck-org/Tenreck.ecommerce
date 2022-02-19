@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { addToCart, removeFromCart } from '../actions/cartActions';
-import MessageBox from '../components/MessageBox';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { addToCart, removeFromCart } from "../actions/cartActions";
+import MessageBox from "../components/MessageBox";
 
 export default function CartScreen(props) {
   const productId = props.match.params.id;
   const qty = props.location.search
-    ? Number(props.location.search.split('=')[1])
+    ? Number(props.location.search.split("=")[1])
     : 1;
   const cart = useSelector((state) => state.cart);
   const { cartItems, error } = cart;
@@ -23,12 +23,14 @@ export default function CartScreen(props) {
     dispatch(removeFromCart(id));
   };
 
+const subtotal = cartItems.reduce((a, c) => a + c.price * c.qty, 0)
+
   const checkoutHandler = () => {
-    props.history.push('/signin?redirect=shipping');
+    props.history.push("/signin?redirect=shipping");
   };
   return (
-    <div className="row top">
-      <div className="col-2">
+    <div className="Cart">
+      <div className="Product">
         <h1>Shopping Cart</h1>
         {/* Inside shopping cart */}
         {error && <MessageBox variant="danger">{error}</MessageBox>}
@@ -40,19 +42,20 @@ export default function CartScreen(props) {
           <ul>
             {cartItems.map((item) => (
               <li key={item.product}>
-                <div className="row">
+                <div className="Cart_card">
                   <div>
                     <img
-                      src={'https://api.tenreck.com'+item.image}
+                      src={"https://api.tenreck.com" + item.image}
                       alt={item.name}
-                      className="small"
+                      className="Cart_product_image"
                     ></img>
                   </div>
-                  <div className="min-30">
-                    <Link to={`/product/${item.product}`}>{item.name}</Link>
+                  <div className="">
+                    <Link className="Cart_product_title" to={`/product/${item.product}`}>{item.name}</Link>
                   </div>
                   <div>
                     <select
+                    className="Cart_select"
                       value={item.qty}
                       onChange={(e) =>
                         dispatch(
@@ -67,9 +70,10 @@ export default function CartScreen(props) {
                       ))}
                     </select>
                   </div>
-                  <div>${item.price}</div>
+                  <div className="Cart_price">${item.price}</div>
                   <div>
                     <button
+                    className="Cart_remove"
                       type="button"
                       onClick={() => removeFromCartHandler(item.product)}
                     >
@@ -87,17 +91,16 @@ export default function CartScreen(props) {
           <ul>
             <li>
               {/* Subtotal */}
-              <h2>
-                Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} items) : $
-                {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
+              <h2 className="Cart_subtotal">
+                Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} items) : <span className="Cart_price">$
+                {Math.round(subtotal)}</span>
               </h2>
             </li>
             <li>
               {/* Checkout Button */}
-              <button
+              <button className="Cart_checkout"
                 type="button"
                 onClick={checkoutHandler}
-                className="primary block"
                 disabled={cartItems.length === 0}
               >
                 Proceed to Checkout

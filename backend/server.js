@@ -1,15 +1,15 @@
-import http from 'http';
-import { Server } from 'socket.io';
-import express from 'express';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import path from 'path';
-import productRouter from './routers/productRouter.js';
-import userRouter from './routers/userRouter.js';
-import orderRouter from './routers/orderRouter.js';
-import uploadRouter from './routers/uploadRouter.js';
-import cors from 'cors';
-import stripeRoutes from './routes/stripeRoutes.js';
+import http from "http";
+import { Server } from "socket.io";
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import path from "path";
+import productRouter from "./routers/productRouter.js";
+import userRouter from "./routers/userRouter.js";
+import orderRouter from "./routers/orderRouter.js";
+import uploadRouter from "./routers/uploadRouter.js";
+import cors from "cors";
+import stripeRoutes from "./routes/stripeRoutes.js";
 dotenv.config();
 
 // middleware -->>>
@@ -19,67 +19,70 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-const allowCrossDomain = function(req, res, next) {
-
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,HEAD,OPTION');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
+const allowCrossDomain = function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,HEAD,OPTION");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
 
   next();
-}
+};
 
-  app.use(allowCrossDomain)
+app.use(allowCrossDomain);
 
 // mongodb connection
-mongoose.connect('mongodb+srv://tenreck:tenreck@123@tenreck.ysmix.mongodb.net/Tenreck?retryWrites=true&w=majority', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
-
-app.use('/api/uploads', uploadRouter);
-app.use('/api/users', userRouter);
-app.use('/api/products', productRouter);
-app.use('/api/orders', orderRouter);
-app.get('/api/config/paypal', (req, res) => {
-  res.send(process.env.PAYPAL_CLIENT_ID || 'AXCn43bR2htx6LJ6BlnsTZeJmK23Pt77xZuPhGXJepmenW2AeAX1Ei9owV5rxsO2IEEDpk8qJb__YafD');
-});
-app.get('/api/config/google', (req, res) => {
-  res.send(process.env.GOOGLE_API_KEY || '');
-});
-const __dirname = path.resolve();
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
-app.use(express.static(path.join(__dirname, './')));
-app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, 'backend.html'))
+mongoose.connect(
+  "mongodb+srv://tenreck:tenreck@123@tenreck.ysmix.mongodb.net/Tenreck?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  }
 );
 
-app.use('./api/config/stripe', stripeRoutes);
+app.use("/api/uploads", uploadRouter);
+app.use("/api/users", userRouter);
+app.use("/api/products", productRouter);
+app.use("/api/orders", orderRouter);
+app.get("/api/config/paypal", (req, res) => {
+  res.send(
+    process.env.PAYPAL_CLIENT_ID ||
+      "AXCn43bR2htx6LJ6BlnsTZeJmK23Pt77xZuPhGXJepmenW2AeAX1Ei9owV5rxsO2IEEDpk8qJb__YafD"
+  );
+});
+app.get("/api/config/google", (req, res) => {
+  res.send(process.env.GOOGLE_API_KEY || "");
+});
+const __dirname = path.resolve();
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+app.use(express.static(path.join(__dirname, "./")));
+app.get("*", (req, res) => res.sendFile(path.join(__dirname, "backend.html")));
+
+app.use("./api/config/stripe", stripeRoutes);
 
 app.use((err, req, res, next) => {
-  res.status(500).send({ message: "500"+err.message });
+  res.status(500).send({ message: "500" + err.message });
 });
 
 const port = process.env.PORT || 5000;
 
 const httpServer = http.Server(app);
-const io = new Server(httpServer, { cors: { origin: 'https://tenreck.com' } });
+const io = new Server(httpServer, { cors: { origin: "https://tenreck.com" } });
 const users = [];
 
-io.on('connection', (socket) => {
-  console.log('connection', socket.id);
-  socket.on('disconnect', () => {
+io.on("connection", (socket) => {
+  console.log("connection", socket.id);
+  socket.on("disconnect", () => {
     const user = users.find((x) => x.socketId === socket.id);
     if (user) {
       user.online = false;
-      console.log('Offline', user.name);
+      console.log("Offline", user.name);
       const admin = users.find((x) => x.isAdmin && x.online);
       if (admin) {
-        io.to(admin.socketId).emit('updateUser', user);
+        io.to(admin.socketId).emit("updateUser", user);
       }
     }
   });
-  socket.on('onLogin', (user) => {
+  socket.on("onLogin", (user) => {
     const updatedUser = {
       ...user,
       online: true,
@@ -93,41 +96,41 @@ io.on('connection', (socket) => {
     } else {
       users.push(updatedUser);
     }
-    console.log('Online', user.name);
+    console.log("Online", user.name);
     const admin = users.find((x) => x.isAdmin && x.online);
     if (admin) {
-      io.to(admin.socketId).emit('updateUser', updatedUser);
+      io.to(admin.socketId).emit("updateUser", updatedUser);
     }
     if (updatedUser.isAdmin) {
-      io.to(updatedUser.socketId).emit('listUsers', users);
+      io.to(updatedUser.socketId).emit("listUsers", users);
     }
   });
 
-  socket.on('onUserSelected', (user) => {
+  socket.on("onUserSelected", (user) => {
     const admin = users.find((x) => x.isAdmin && x.online);
     if (admin) {
       const existUser = users.find((x) => x._id === user._id);
-      io.to(admin.socketId).emit('selectUser', existUser);
+      io.to(admin.socketId).emit("selectUser", existUser);
     }
   });
 
-  socket.on('onMessage', (message) => {
+  socket.on("onMessage", (message) => {
     if (message.isAdmin) {
       const user = users.find((x) => x._id === message._id && x.online);
       if (user) {
-        io.to(user.socketId).emit('message', message);
+        io.to(user.socketId).emit("message", message);
         user.messages.push(message);
       }
     } else {
       const admin = users.find((x) => x.isAdmin && x.online);
       if (admin) {
-        io.to(admin.socketId).emit('message', message);
+        io.to(admin.socketId).emit("message", message);
         const user = users.find((x) => x._id === message._id && x.online);
         user.messages.push(message);
       } else {
-        io.to(socket.id).emit('message', {
-          name: 'Admin',
-          body: 'Sorry. I am not online right now',
+        io.to(socket.id).emit("message", {
+          name: "Admin",
+          body: "Sorry. I am not online right now",
         });
       }
     }

@@ -67,7 +67,7 @@ export default function ProductScreen(props) {
               <div className="product_detail_1">
                 <ul className="main_product_ul">
                   <li>
-                    <h1 className="product_title">{product.name}</h1>
+                    <h1 className="product_title_main">{product.name}</h1>
                   </li>
                   <li>
                     <Rating
@@ -75,7 +75,7 @@ export default function ProductScreen(props) {
                       numReviews={product.numReviews}
                     ></Rating>
                   </li>
-                  <li className="product price">Price : ${product.price}</li>
+                  <li className="product_price">${product.price}</li>
                   <li className="product_description">
                     Description:
                     <p>{product.description}</p>
@@ -100,10 +100,10 @@ export default function ProductScreen(props) {
                       ></Rating>
                     </li>
                     <li>
-                      <div className="product price">
-                        <div>Price</div>
+                      {/* <div className="product_price">
+                        <div></div>
                         <div>${product.price}</div>
-                      </div>
+                      </div> */}
                     </li>
                     <li>
                       <div className="product_status">
