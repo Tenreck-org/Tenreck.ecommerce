@@ -65,51 +65,51 @@ export default function ShippingAddressScreen(props) {
     props.history.push('/map');
   };
   return (
-    <div>
+    <div className="shipping">
       <CheckoutSteps step1 step2></CheckoutSteps>
-      <form className="form" onSubmit={submitHandler}>
+      <form className="shipping_form card" onSubmit={submitHandler}>
         <div>
-          <h1>Project Info</h1>
+          <h1>Shipping</h1>
         </div>
         <div>
           <label htmlFor="fullName">Full Name</label>
           <input
             type="text"
             id="fullName"
-            placeholder="Enter full name"
+            placeholder="Monkey Kong"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
             required
           ></input>
         </div>
         <div>
-          <label htmlFor="address">Features</label>
+          <label htmlFor="address">Address</label>
           <input
             type="text"
             id="address"
-            placeholder="Enter features"
+            placeholder="whitehouse"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             required
           ></input>
         </div>
         <div>
-          <label htmlFor="Title">Title</label>
+          <label htmlFor="email">email</label>
           <input
-            type="text"
-            id="city"
-            placeholder="Title"
+            type="email"
+            id="email"
+            placeholder="someone@tenreck.com"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             required
           ></input>
         </div>
         <div>
-          <label htmlFor="postalCode">Resources</label>
+          <label htmlFor="phone">Phone</label>
           <input
             type="text"
-            id="postalCode"
-            placeholder="link of your logo or something"
+            id="phone"
+            placeholder="+1(000)94374355"
             value={postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
             required
