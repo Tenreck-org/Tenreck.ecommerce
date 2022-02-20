@@ -74,6 +74,7 @@ function App() {
               )}
             ></Route>
           </div>
+          <br />
           <div className="menu_content">
             <Link to="/cart" className="cart eff1">
               Cart
@@ -301,7 +302,7 @@ function App() {
                 <a href="/hiring"> Jobs </a>
               </li>
             </ul>
-            <p>2022 Tenreck | All Rights Are Reserved</p>
+            <p id="font1">2022 Tenreck | All Rights Are Reserved</p>
           </div>
         </footer>
       </div>

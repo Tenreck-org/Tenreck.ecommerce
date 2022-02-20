@@ -51,6 +51,7 @@ export default function HomeScreen() {
           </Carousel>
         </>
       )}
+      <br />
       <h2 className="home_title">Featured Products</h2>
       {loading ? (
         <LoadingBox></LoadingBox>
