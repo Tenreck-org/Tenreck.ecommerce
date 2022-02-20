@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { saveShippingAddress } from '../actions/cartActions';
-import CheckoutSteps from '../components/CheckoutSteps';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { saveShippingAddress } from "../actions/cartActions";
+import CheckoutSteps from "../components/CheckoutSteps";
 
 export default function ShippingAddressScreen(props) {
   const userSignin = useSelector((state) => state.userSignin);
@@ -15,7 +15,7 @@ export default function ShippingAddressScreen(props) {
   const { address: addressMap } = userAddressMap;
 
   if (!userInfo) {
-    props.history.push('/signin');
+    props.history.push("/signin");
   }
   const [fullName, setFullName] = useState(shippingAddress.fullName);
   const [address, setAddress] = useState(shippingAddress.address);
@@ -33,7 +33,6 @@ export default function ShippingAddressScreen(props) {
     }
     let moveOn = true;
     if (!newLat || !newLng) {
-     
     }
     if (moveOn) {
       dispatch(
@@ -47,7 +46,7 @@ export default function ShippingAddressScreen(props) {
           lng: newLng,
         })
       );
-      props.history.push('/payment');
+      props.history.push("/payment");
     }
   };
   const chooseOnMap = () => {
@@ -62,7 +61,7 @@ export default function ShippingAddressScreen(props) {
         lng,
       })
     );
-    props.history.push('/map');
+    props.history.push("/map");
   };
   return (
     <div className="shipping">
@@ -107,7 +106,7 @@ export default function ShippingAddressScreen(props) {
         <div>
           <label htmlFor="phone">Phone</label>
           <input
-            type="text"
+            type="tel"
             id="phone"
             placeholder="+1(000)94374355"
             value={postalCode}
