@@ -6,7 +6,7 @@ import "./CardAnimation.css";
 export default function Product(props) {
   const { product } = props;
   return (
-    <div key={product._id} className="card">
+    <div key={product._id} className="card animation">
       <Link to={`/product/${product._id}`}>
         <img
           className="product_img"

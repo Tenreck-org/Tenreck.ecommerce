@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { register } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import "../style/RegisterScreen.css";
 
 export default function RegisterScreen(props) {
   const [name, setName] = useState('');
@@ -33,8 +34,9 @@ export default function RegisterScreen(props) {
     }
   }, [props.history, redirect, userInfo]);
   return (
-    <div>
-      <form className="form" onSubmit={submitHandler}>
+    <div className='parentformdivreg'>
+    <div className='formdivreg'>
+      <form className="form registerform" onSubmit={submitHandler}>
         <div>
           <h1>Create Account</h1>
         </div>
@@ -42,6 +44,7 @@ export default function RegisterScreen(props) {
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         <div>
           <label htmlFor="name">Name</label>
+          <br />
           <input
             type="text"
             id="name"
@@ -50,6 +53,7 @@ export default function RegisterScreen(props) {
             onChange={(e) => setName(e.target.value)}
           ></input>
         </div>
+        <br/>
         <div>
           <label htmlFor="email">Email address</label>
           <input
@@ -60,6 +64,7 @@ export default function RegisterScreen(props) {
             onChange={(e) => setEmail(e.target.value)}
           ></input>
         </div>
+        <br />
         <div>
           <label htmlFor="password">Password</label>
           <input
@@ -70,6 +75,7 @@ export default function RegisterScreen(props) {
             onChange={(e) => setPassword(e.target.value)}
           ></input>
         </div>
+        <br />
         <div>
           <label htmlFor="confirmPassword">Confirm Password</label>
           <input
@@ -80,6 +86,7 @@ export default function RegisterScreen(props) {
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></input>
         </div>
+        <br />
         <div>
           <label />
           <button className="primary" type="submit">
@@ -88,12 +95,13 @@ export default function RegisterScreen(props) {
         </div>
         <div>
           <label />
-          <div>
+          <div className='formendreg'>
             Already have an account?{' '}
-            <Link to={`/signin?redirect=${redirect}`}>Sign-In</Link>
+            <Link to={`/signin?redirect=${redirect}`}> Sign-In</Link>
           </div>
         </div>
       </form>
+    </div>
     </div>
   );
 }
