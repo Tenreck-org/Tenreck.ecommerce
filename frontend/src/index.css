@@ -31,6 +31,8 @@ footer .Social_icon li,
 .menu li {
   list-style: none;
   padding: 0 10px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
 }
 
 footer .menu li a {
@@ -110,4 +112,8 @@ aside li {
 }
 button.close-sidebar {
   padding: 0.3rem 0.8rem;
+}
+
+#font1{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

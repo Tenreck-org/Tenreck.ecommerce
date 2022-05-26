@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { signin } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import "../style/SigninScreen.css";
 
 export default function SigninScreen(props) {
   const [email, setEmail] = useState('');
@@ -27,7 +28,8 @@ export default function SigninScreen(props) {
     }
   }, [props.history, redirect, userInfo]);
   return (
-    <div>
+    <div className='parentformdiv'>
+    <div className='formdiv'>
       <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Sign In</h1>
@@ -44,6 +46,7 @@ export default function SigninScreen(props) {
             onChange={(e) => setEmail(e.target.value)}
           ></input>
         </div>
+        -
         <div>
           <label htmlFor="password">Password</label>
           <input
@@ -54,6 +57,7 @@ export default function SigninScreen(props) {
             onChange={(e) => setPassword(e.target.value)}
           ></input>
         </div>
+        <br/>
         <div>
           <label />
           <button className="primary" type="submit">
@@ -62,14 +66,15 @@ export default function SigninScreen(props) {
         </div>
         <div>
           <label />
-          <div>
+          <div className='formend'>
             New customer?{' '}
             <Link to={`/register?redirect=${redirect}`}>
-              Create your account
+              <p>Create your account</p>
             </Link>
           </div>
         </div>
       </form>
+    </div>
     </div>
   );
 }

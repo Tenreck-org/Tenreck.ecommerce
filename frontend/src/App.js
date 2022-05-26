@@ -38,7 +38,9 @@ import instagramIcon from "./static/logo-instagram.svg";
 import twitterIcon from "./static/logo-twitter.svg";
 import "./style/HomeScreen.css";
 import "./style/ProductScreen.css";
-import "./style/CardScreen.css";
+import "./style/CartScreen.css";
+import "./style/ShippingScreen.css";
+import "./style/CheckoutSteps.css";
 function App() {
   const cart = useSelector((state) => state.cart);
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
@@ -74,6 +76,7 @@ function App() {
               )}
             ></Route>
           </div>
+          <br />
           <div className="menu_content">
             <Link to="/cart" className="cart eff1">
               Cart
@@ -301,7 +304,7 @@ function App() {
                 <a href="/hiring"> Jobs </a>
               </li>
             </ul>
-            <p>2022 Tenreck | All Rights Are Reserved</p>
+            <p id="font1">2022 Tenreck | All Rights Are Reserved</p>
           </div>
         </footer>
       </div>
